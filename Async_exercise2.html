@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise</title>
+    <title>Async & Await</title>
 </head>
-      
 <body>
+    <script>
 
+createVideo("https://justnaija.com/video/download/943/").then(
+ play()
 
+ ).catch(function(error) {
+     alert(err.message())
 
-<script>
-createVideo("https://ak.picdn.net/shutterstock/videos/1052687960/preview/stock-footage-beautiful-gold-shimmering-particles-with-lens-flare-on-black-background-in-slow-motion-d.webm")
- 
-{
+ })
+
  async function createVideo(videoSource)
-
-    
+{
+        await new Promise(function(resolve, reject){
                 let video = document.createElement('video')
-                let video = document.createElement('source')
+                let source = document.createElement('source')
                 video.setAttribute('controls', 'controls')
                 video.setAttribute('id', 'video')
                 source.src = videoSource
-                source.type = "video/webm"
+                source.type = "video/mp4"
                 video.appendChild(source)
 
                 video.onload = ()=> resolve(video)
@@ -33,11 +35,11 @@ createVideo("https://ak.picdn.net/shutterstock/videos/1052687960/preview/stock-f
                 
 
                   document.body.appendChild(video)
-                
+                })
             }
 
-            function play() {
-                return new Promise(function(resolve, reject){
+          async  function play() {
+              await new Promise(function(resolve, reject){
               var video = document.getElementById('video');
               resolve(video.play());
 
@@ -47,12 +49,6 @@ createVideo("https://ak.picdn.net/shutterstock/videos/1052687960/preview/stock-f
              }
 
 
-
-
-
-
-
     </script>
-    
 </body>
 </html>
