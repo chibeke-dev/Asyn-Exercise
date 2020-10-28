@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise</title>
+</head>
+      
+<body>
+
+
+
+<script>
+createVideo("https://ak.picdn.net/shutterstock/videos/1052687960/preview/stock-footage-beautiful-gold-shimmering-particles-with-lens-flare-on-black-background-in-slow-motion-d.webm")
+ 
+{
+ async function createVideo(videoSource)
+
+    
+                let video = document.createElement('video')
+                let video = document.createElement('source')
+                video.setAttribute('controls', 'controls')
+                video.setAttribute('id', 'video')
+                source.src = videoSource
+                source.type = "video/webm"
+                video.appendChild(source)
+
+                video.onload = ()=> resolve(video)
+                
+
+                video.onerror = ()=>
+                    reject(new Error("not valid"))
+                
+
+                  document.body.appendChild(video)
+                
+            }
+
+            function play() {
+                return new Promise(function(resolve, reject){
+              var video = document.getElementById('video');
+              resolve(video.play());
+
+
+                })
+
+             }
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>
